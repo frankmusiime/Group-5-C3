@@ -91,10 +91,3 @@ Organize ETL scaffolding
 
 Research sample XML data
 
-## Week 1 Deliverables
-
-GitHub repository created with collaborators and complete README.
-
-Architecture diagram drafted and committed in repo.
-
-Scrum board created with required columns and populated tasks.
