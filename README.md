@@ -75,7 +75,7 @@ ETL Pipeline: Parses XML → cleans/normalizes → categorizes → stores in SQL
 
 Scrum Board Access
 
-* Tool Used: [Insert: GitHub Projects / Trello / Jira]
+* Tool Used: Trello 
 
 * Board Link:  https://trello.com/invite/b/68c02e0265dd9c507007771b/ATTI1ea804be72db315ff8d71eff0f6c976eA1E8CB15/group-5-c3-momo-sms-dashboard-scrum-board
 
