@@ -19,9 +19,9 @@ This Week 1 setup establishes our shared repository, system architecture draft, 
 
 Team Members
 
-Member 1:frank musiime
-Member 2:placide niyonizeye
-Member 3:olga ikirezi
+Member 1:Frank Musiime
+Member 2:Placide Niyonizeye
+Member 3:Olga Ikirezi
 
 Repository Organization
 .
