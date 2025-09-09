@@ -70,7 +70,7 @@ ETL Pipeline: Parses XML → cleans/normalizes → categorizes → stores in SQL
 
 * Logs: ETL run logs and unparsed data for troubleshooting.
 
-* Diagram Link: https://app.diagrams.net/
+* Diagram Link: https://app.diagrams.net/#G1LY8yB77TmslvLp_aLrv4BXHMCONO9wBB#%7B%22pageId%22%3A%227LU1rX8EdJsmNZgxLKIX%22%7D
 * Diagram File in Repo: web/assets/architecture.png
 
 Scrum Board Access
