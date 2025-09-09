@@ -1,5 +1,7 @@
-Team Setup and Project Planning — Group-5~C3
-Project Overview
+# Team Setup
+## Project Overview
+
+> Group-5-C3
 
 This project aims to process and analyze MoMo SMS data exported in XML format. The pipeline will:
 
@@ -17,13 +19,13 @@ Provide a simple web dashboard for analysis and insights.
 
 This Week 1 setup establishes our shared repository, system architecture draft, and Scrum workflow to support collaborative development.
 
-Team Members
+## Team Members
 
-Member 1:Frank Musiime
-Member 2:Placide Niyonizeye
-Member 3:Olga Ikirezi
+* Member 1:Frank Musiime
+* Member 2:Placide Niyonizeye
+* Member 3:Olga Ikirezi
 
-Repository Organization
+## Repository Organization
 .
 ├── README.md                         # Setup, run, overview
 ├── .env.example                      # Example environment variables
@@ -54,32 +56,32 @@ Repository Organization
     ├── test_clean_normalize.py
     └── test_categorize.py
 
-System Architecture
+## System Architecture
 
-High-Level Components:
+### High-Level Components:
 
 ETL Pipeline: Parses XML → cleans/normalizes → categorizes → stores in SQLite → exports JSON.
 
-Relational Database (SQLite): Central store of structured transaction data.
+* Relational Database (SQLite): Central store of structured transaction data.
 
-Processed Data (JSON): Feeds the dashboard with KPIs, charts, and tables.
+* Processed Data (JSON): Feeds the dashboard with KPIs, charts, and tables.
 
-Web Dashboard: Static frontend (HTML/CSS/JS) that fetches processed data for visualization.
+* Web Dashboard: Static frontend (HTML/CSS/JS) that fetches processed data for visualization.
 
-Logs: ETL run logs and unparsed data for troubleshooting.
+* Logs: ETL run logs and unparsed data for troubleshooting.
 
-Diagram Link: [Insert link to Draw.io or Miro diagram]
-Diagram File in Repo: web/assets/architecture.png
+* Diagram Link: [Insert link to Draw.io or Miro diagram]
+* Diagram File in Repo: web/assets/architecture.png
 
-Scrum Board
+Scrum Board Access
 
-Tool Used: [Insert: GitHub Projects / Trello / Jira]
+* Tool Used: [Insert: GitHub Projects / Trello / Jira]
 
-Board Link: [Insert board link here]
+* Board Link:  https://trello.com/invite/b/68c02e0265dd9c507007771b/ATTI1ea804be72db315ff8d71eff0f6c976eA1E8CB15/group-5-c3-momo-sms-dashboard-scrum-board
 
-Columns: To Do | In Progress | Done
+* Columns: To Do | In Progress | Done
 
-Initial Tasks:
+* Initial Tasks:
 
 Repository setup & collaborators added
 
@@ -89,7 +91,7 @@ Organize ETL scaffolding
 
 Research sample XML data
 
-Week 1 Deliverables
+## Week 1 Deliverables
 
 GitHub repository created with collaborators and complete README.
 
