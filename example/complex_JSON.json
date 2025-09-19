@@ -2,20 +2,12 @@
   "customers": [
     {
       "customerId": 1,
-      "first_name": "Alice",
-      "last_name": "Nkurunziza",
+      "first_name": "Allen",
+      "last_name": "nziza",
       "phone_number": "+250785000000",
       "status": "close",
       "balance": 0.02
     },
-    {
-      "customerId": 2,
-      "first_name": "John",
-      "last_name": "Kamau",
-      "phone_number": "+254711111111",
-      "status": "active",
-      "balance": 1500.50
-    }
   ],
   "transaction_categories": [
     {
@@ -39,10 +31,10 @@
       },
       "Receiver": {
         "customerId": 1,
-        "name": "Alice Nkurunziza"
+        "name": "Allen nziza"
       },
       "Timestamp": "2025-09-18T12:30:00",
-      "Currency": "KES",
+      "Currency": "rwf",
       "Status": "active",
       "Category": {
         "Category_id": 1,
@@ -60,14 +52,8 @@
         "customerId": 2,
         "name": "John Kamau"
       },
-      "Timestamp": "2025-09-18T14:45:00",
-      "Currency": "RWF",
-      "Status": "suspended",
-      "Category": {
-        "Category_id": 2,
-        "Category_name": "Deposit"
-      }
-    }
+      
+      
   ],
   "system_logs": [
     {
