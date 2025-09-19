@@ -19,8 +19,8 @@
       "Category_id": 2,
       "Category_name": "Deposit",
       "Description": "Customer adds funds into their account"
-    }
-    }
+    },
+    
   ],
   "transactions": [
     {
