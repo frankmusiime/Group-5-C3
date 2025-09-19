@@ -181,3 +181,8 @@ mysql -u root -p momo_db < database/sample_queries.sql
 ## Tool used 
 - Board Link: https://trello.com/invite/b/68c02e0265dd9c507007771b/ATTI1ea804be72db315ff8d71eff0f6c976eA1E8CB15/group-5-c3-momo-sms-dashboard-scrum-board
 
+<img width="1766" height="570" alt="12" src="https://github.com/user-attachments/assets/f29347bb-e730-4c94-8363-6ae6049c8ede" />
+
+  <img width="1834" height="580" alt="23" src="https://github.com/user-attachments/assets/e3a93774-4dbf-424f-a353-d9259361b86d" />
+
+
