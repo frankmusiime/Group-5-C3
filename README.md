@@ -91,3 +91,93 @@ Organize ETL scaffolding
 
 Research sample XML data
 
+#  Week 2 — Database Foundation
+
+This week we have decided to change our Scrum board from Trello and use **GitHub Projects**, as it makes it easier to mark issues directly where development happens.
+
+---
+
+## Setup & Installation
+
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/frankmusiime/Group-5-C3.git
+2. **Create a virtual environment**
+
+python -m venv venv
+source venv/bin/activate   # Linux/Mac
+venv\Scripts\activate      # Windows
+
+
+3. **Install dependencies**
+
+pip install -r requirements.txt
+
+
+4.**Set up environment variables**
+
+Copy .env.example → .env
+
+Update database URL or API port if needed
+
+5. **Run the ETL pipeline**
+
+python etl/run.py --xml data/raw/momo.xml
+
+
+6. **Serve the frontend dashboard**
+
+python -m http.server 8000
+
+
+Then open http://localhost:8000/web/index.html
+ in your browser.
+
+## Roadmap
+
+ Initial ETL pipeline (parse, clean, categorize, load)
+
+ SQLite prototype integration (Week 1)
+
+ MySQL migration and ERD (Week 2)
+
+ Database Design Document PDF (Week 2)
+
+ JSON serialization refinements
+
+ Advanced analytics (filters, KPIs, trends)
+
+ Deployment to cloud (Heroku / Render / AWS / etc.)
+
+## ERD & Data Artifacts (Week 2)
+
+We completed the Entity Relationship Diagram (ERD) and exported artifacts to make the schema easy to understand and reproduce:
+
+- ERD diagram (visual): /docs/erd_diagram.png
+
+- JSON schema model: /examples/json_schemas.json
+
+- SQL DDL script: /database/database_setup.sql
+
+- Design document: /docs/database_design_doc.pdf
+
+## How to use them:
+
+- Review the ERD to confirm relationships and constraints.
+
+- Apply the SQL script to a local MySQL instance:
+
+- mysql -u root -p < database/database_setup.sql
+
+**Testing**
+
+Run unit tests with:
+
+pytest tests/
+
+For database-specific validation:
+
+mysql -u root -p momo_db < database/sample_queries.sql 
+## Tool used 
+- Board Link: https://trello.com/invite/b/68c02e0265dd9c507007771b/ATTI1ea804be72db315ff8d71eff0f6c976eA1E8CB15/group-5-c3-momo-sms-dashboard-scrum-board
+
