@@ -33,22 +33,40 @@
     {
       "Transaction_id": 1001,
       "Amount": 200.00,
-      "Sender_id": 2,
-      "Receiver_id": 1,
+      "Sender": {
+        "customerId": 2,
+        "name": "John Kamau"
+      },
+      "Receiver": {
+        "customerId": 1,
+        "name": "Alice Nkurunziza"
+      },
       "Timestamp": "2025-09-18T12:30:00",
       "Currency": "KES",
       "Status": "active",
-      "Category_id": 1
+      "Category": {
+        "Category_id": 1,
+        "Category_name": "Transfer"
+      }
     },
     {
       "Transaction_id": 1002,
       "Amount": 500.00,
-      "Sender_id": 1,
-      "Receiver_id": 2,
+      "Sender": {
+        "customerId": 1,
+        "name": "Alice Nkurunziza"
+      },
+      "Receiver": {
+        "customerId": 2,
+        "name": "John Kamau"
+      },
       "Timestamp": "2025-09-18T14:45:00",
       "Currency": "RWF",
       "Status": "suspended",
-      "Category_id": 2
+      "Category": {
+        "Category_id": 2,
+        "Category_name": "Deposit"
+      }
     }
   ],
   "system_logs": [
