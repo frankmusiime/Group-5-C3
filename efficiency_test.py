@@ -80,6 +80,10 @@ def reflection():
         f"{CYAN}This makes it much more efficient,"
         "especially for large datasets.{RESET}"
     )
+    print(
+        f"{YELLOW}Another option: Binary Search Tree (BST)."
+        f"If balanced, it can find items in O(log n) time,"
+        "also faster than linear search.{RESET}")
 
 
 # --- 5. Run Tests ---
@@ -88,6 +92,23 @@ if _name_ == "_main_":
     compare_efficiency(5)   # early in the list
     compare_efficiency(15)  # middle of the list
     compare_efficiency(20)  # last in the list
+    compare_efficiency(25)  # non-existent ID
+    compare_efficiency(1)   # first in the list
+    compare_efficiency(10)  # another middle ID
+    compare_efficiency(18)  # near the end
+    compare_efficiency(30)  # another non-existent ID
+    compare_efficiency(12)  # another middle ID
+    compare_efficiency(3)   # early in the list
+    compare_efficiency(7)   # early in the list
+    compare_efficiency(14)  # middle of the list
+    compare_efficiency(19)  # near the end
+    compare_efficiency(22)  # non-existent ID
+    compare_efficiency(8)   # early in the list
+    compare_efficiency(13)  # middle of the list
+    compare_efficiency(17)  # near the end
+    compare_efficiency(4)   # early in the list
+    compare_efficiency(6)   # early in the list
+    compare_efficiency(9)   # early in the list
 
     # Print reflection
     reflection()
