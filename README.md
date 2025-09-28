@@ -181,6 +181,103 @@ mysql -u root -p momo_db < database/sample_queries.sql
 ## Tool used 
 - Board Link: https://trello.com/invite/b/68c02e0265dd9c507007771b/ATTI1ea804be72db315ff8d71eff0f6c976eA1E8CB15/group-5-c3-momo-sms-dashboard-scrum-board
 
+new readme week3
+
+SMS Transactions REST API Test Client
+
+A Python client to test CRUD operations (Create, Read, Update, Delete) on the SMS Transactions REST API. The client demonstrates interaction with the API endpoints using HTTP Basic Authentication and provides clear outputs for each operation.
+
+Prerequisites
+
+Ensure the following are installed:
+
+Python 3.10+
+
+requests library (pip install requests)
+
+Running instance of the SMS Transactions API at http://localhost:8000
+
+Setup
+
+Clone or download this repository.
+
+Install Python dependencies:
+
+pip install requests
 
 
+Start your API server:
+
+python http_server.py
+
+
+The server will be available at http://localhost:8000.
+
+Configuration
+
+Edit the test_client.py file to set your authentication credentials:
+
+USERNAME = "frank"
+PASSWORD = "Group5@1"
+BASE_URL = "http://localhost:8000"
+
+
+Ensure these credentials match the API’s authentication.
+
+Usage
+
+Run the test client to perform all CRUD operations:
+
+python test_client.py
+
+
+The client will perform:
+
+GET all transactions – retrieve all records
+
+POST a new transaction – create a transaction with test data
+
+GET the newly created transaction by ID – verify creation
+
+PUT update the transaction – modify specific fields
+
+GET the updated transaction by ID – verify update
+
+DELETE the transaction – remove the record
+
+GET the deleted transaction by ID – confirm deletion (should return 404)
+
+Each step prints the HTTP status code and JSON response.
+
+API Endpoints Tested
+Method	Endpoint	Description
+GET	/transactions	Fetch all transactions
+POST	/transactions	Create a new transaction
+GET	/transactions/{id}	Fetch a transaction by ID
+PUT	/transactions/{id}	Update a transaction by ID
+DELETE	/transactions/{id}	Delete a transaction by ID
+Example Output
+GET /transactions
+Status Code: 200
+[]
+
+POST /transactions
+Status Code: 201
+{'id': 10, 'transaction_id': '99999999', 'category': 'Incoming Money', ...}
+
+PUT /transactions/10
+Status Code: 200
+{'message': 'Transaction updated'}
+
+DELETE /transactions/10
+Status Code: 200
+{'message': 'Transaction deleted'}
+
+Notes
+
+The PUT request should include all required fields according to the API schema (sms_date, sms_time, type, amount, category, etc.).
+
+A GET after DELETE returning 404 is expected.
+
+Ensure your API server uses the same authentication credentials as defined in this client.
 
