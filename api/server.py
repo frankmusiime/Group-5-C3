@@ -3,15 +3,18 @@ import json
 import base64
 
 
-with open('../data/transactions.json', 'r') as f:
+with open('./data/transactions.json', 'r') as f:
     transactions = json.load(f)
+
 
 class TransactionAPI(BaseHTTPRequestHandler):
     def authenticate(self):
         auth_header = self.headers.get('Authorization')
         if not auth_header:
             self.send_response(401)
-            self.send_header('WWW-Authenticate', 'Basic realm="Authentication Required"')
+            self.send_header(
+                'WWW-Authenticate', 'Basic realm="Authentication Required"'
+            )
             self.end_headers()
             self.wfile.write(b'Authorization required')
             return False
@@ -26,8 +29,6 @@ class TransactionAPI(BaseHTTPRequestHandler):
 
             decoded_auth = base64.b64decode(auth_string).decode('utf-8')
             username, password = decoded_auth.split(':')
-
-            
             if username == 'admin' and password == 'alu@123':
                 return True
             else:
@@ -35,7 +36,7 @@ class TransactionAPI(BaseHTTPRequestHandler):
                 self.end_headers()
                 self.wfile.write(b'401 Unauthorized')
                 return False
-        except:
+        except Exception:
             self.send_response(401)
             self.end_headers()
             self.wfile.write(b'Invalid authorization header')
@@ -43,6 +44,12 @@ class TransactionAPI(BaseHTTPRequestHandler):
 
     def do_GET(self):
         if not self.authenticate():
+            return
+        if self.path == '/':
+            self.send_response(200)
+            self.send_header('Content-type', 'application/json')
+            self.end_headers()
+            self.wfile.write(json.dumps(transactions).encode())
             return
 
         if self.path == '/transactions':
@@ -52,7 +59,13 @@ class TransactionAPI(BaseHTTPRequestHandler):
             self.wfile.write(json.dumps(transactions).encode())
         elif self.path.startswith('/transactions/'):
             transaction_id = self.path.split('/')[-1]
-            transaction = next((t for t in transactions if t['transaction_id'] == transaction_id), None)
+            transaction = next(
+                (
+                    t for t in transactions
+                    if t['transaction_id'] == transaction_id
+                ),
+                None
+            )
             if transaction:
                 self.send_response(200)
                 self.send_header('Content-type', 'application/json')
@@ -77,8 +90,7 @@ class TransactionAPI(BaseHTTPRequestHandler):
             new_transaction = json.loads(post_data.decode('utf-8'))
             transactions.append(new_transaction)
 
-            
-            with open('../data/transactions.json', 'w') as f:
+            with open('./data/transactions.json', 'w') as f:
                 json.dump(transactions, f, indent=4)
 
             self.send_response(201)
@@ -103,9 +115,7 @@ class TransactionAPI(BaseHTTPRequestHandler):
             for i, transaction in enumerate(transactions):
                 if transaction['transaction_id'] == transaction_id:
                     transactions[i] = updated_transaction
-
-                    
-                    with open('../data/transactions.json', 'w') as f:
+                    with open('./data/transactions.json', 'w') as f:
                         json.dump(transactions, f, indent=4)
 
                     self.send_response(200)
@@ -131,9 +141,7 @@ class TransactionAPI(BaseHTTPRequestHandler):
             for i, transaction in enumerate(transactions):
                 if transaction['transaction_id'] == transaction_id:
                     del transactions[i]
-
-                    
-                    with open('../data/transactions.json', 'w') as f:
+                    with open('./data/transactions.json', 'w') as f:
                         json.dump(transactions, f, indent=4)
 
                     self.send_response(200)
