@@ -182,95 +182,124 @@ mysql -u root -p momo_db < database/sample_queries.sql
 - Board Link: https://trello.com/invite/b/68c02e0265dd9c507007771b/ATTI1ea804be72db315ff8d71eff0f6c976eA1E8CB15/group-5-c3-momo-sms-dashboard-scrum-board
 
 
-# week3 Transaction REST API
+# Week3 Transaction REST API
 
-This project implements a REST API in *plain Python* using the built-in http.server module.  
-The API allows users to perform CRUD operations (Create, Read, Update, Delete) on transaction records.  
-It also demonstrates API security using *Basic Authentication* and compares *Linear Search vs Dictionary Lookup* for data access efficiency.
+This project implements a REST API in plain Python using the built-in http.
+server module.
+The API allows users to perform CRUD operations (Create, Read, Update, Delete) on transaction records.
+It also demonstrates API security using Basic Authentication and compares Linear Search vs Dictionary Lookup for data access efficiency.
 
-## Features
+### Features
+
 - Parse XML transaction data into JSON.
+
 - CRUD endpoints (GET, POST, PUT, DELETE) for managing transactions.
+
 - Basic Authentication (admin / alu@123).
+
 - Data persistence using transactions.json.
+
 - Efficiency comparison: Linear Search vs Dictionary Lookup.
 
-## Setup Instructions
+### Setup Instructions
 
-### 1. Clone the repository
-```bash
+1. Clone the repository
+
 git clone https://github.com/your-username/Group-5-C3.git
 cd Group-5-C3
 
+
 2. Create and activate a virtual environment (optional but recommended)
+
 python -m venv venv
- Windows
+
+
+Windows
+
 venv\Scripts\activate
- Linux/Mac
+
+
+Linux/Mac
+
 source venv/bin/activate
 
+
 3. Run the server
+
 python api/server.py
 
 
 Server will start on:
- http://localhost:8080
+http://localhost:8080
+
 with username: admin and password: alu@123
 
 ### Example API Usage
+
 1. Get all transactions
+
 curl -u admin:alu@123 http://localhost:8080/transactions
 
+
 2. Get transaction by ID
+
 curl -u admin:alu@123 http://localhost:8080/transactions/<transaction_id>
 
+
 3. Create a transaction
+
 curl -u admin:alu@123 -X POST http://localhost:8080/transactions \
   -H "Content-Type: application/json" \
   -d '{"transaction_id":"987654321","type":"deposit","amount":"3800","sender":"M-Money","receiver":"Jane Smith"}'
 
-4. Update a transaction
+
+4.Update a transaction
+
 curl -u admin:alu@123 -X PUT http://localhost:8080/transactions/987654321 \
   -H "Content-Type: application/json" \
   -d '{"transaction_id":"987654321","type":"withdrawal","amount":"1000","sender":"Jane Smith","receiver":"M-Money"}'
 
+
 5. Delete a transaction
+
 curl -u admin:alu@123 -X DELETE http://localhost:8080/transactions/987654321
+
 
 ## Data Structure & Algorithm (DSA) Comparison
 
 ### The project includes a test comparing:
 
-* Linear Search → checks each transaction one by one.
+- Linear Search → checks each transaction one by one.
 
-* Dictionary Lookup → uses a Python dictionary for O(1) access.
+- Dictionary Lookup → uses a Python dictionary for O(1) access.
 
 Results show that dictionary lookups are significantly faster for large datasets.
 
 ### Authentication
 
-This API uses Basic Authentication:
+**This API uses Basic Authentication:**
+- Username: admin
+- Password: alu@123
 
-Username: admin
+**Note:** Basic Auth is not secure for production (credentials are Base64 encoded, not encrypted).
 
-Password: alu@123
+**Project Structure**
 
-** Note **: Basic Auth is not secure for production (credentials are Base64 encoded, not encrypted).
-
-### Project Structure
 Group-5-C3/
 │── api/
-│   ├── server.py          # Main REST API server
-│   ├── dsa_test.py        # Linear vs Dictionary lookup test
+│ ├── server.py Main REST API server
+│ ├── dsa_test.py Linear vs Dictionary lookup test
 │── data/
-│   ├── transactions.json  # Sample transaction data
-│── README.md              # Setup & usage instructions
-│── report.pdf             # Detailed documentation
+│ ├── transactions.json Sample transaction data
+│── README.md Setup & usage instructions
+│── report.pdf Detailed documentation
 
-### Authors 
-* Frank Musiime
-* Placide Niyonizeye
-* Olga Ikirezi
-Group_5_C3 
+**Authors**
 
+- Frank Musiime
 
+- Placide Niyonizeye
+
+- Olga Ikirezi
+
+**Group_5_C3**
