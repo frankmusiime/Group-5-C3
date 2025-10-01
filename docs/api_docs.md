@@ -21,7 +21,7 @@ Endpoint & Method: GET /transactions/{transaction_id}
 Request Example:
 curl -u admin:alu@123 http://localhost:8080/transactions/76662021700
 Response Example:
-{ ...JSON transaction object... }
+{"transaction_id": "76662021700", "type": "1", "amount": "", "sender": "M-Money", "receiver": "", "timestamp": "10 May 2024 4:30:58 PM", "new_balance": "", "message": "You have received 2000 RWF from Jane Smith (*********013) on your mobile money account at 2024-05-10 16:30:51. Message from sender: . Your new balance:2000 RWF. Financial Transaction Id: 76662021700.", "financial_transaction_id": "76662021700", "service_center": "+250788110381", "fee": ""}
 Error Codes:
 401 Unauthorized – Missing or invalid credentials
 404 Not Found – Transaction not found
