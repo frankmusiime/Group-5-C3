@@ -181,103 +181,97 @@ mysql -u root -p momo_db < database/sample_queries.sql
 ## Tool used 
 - Board Link: https://trello.com/invite/b/68c02e0265dd9c507007771b/ATTI1ea804be72db315ff8d71eff0f6c976eA1E8CB15/group-5-c3-momo-sms-dashboard-scrum-board
 
-new readme week3
+week3
 
-SMS Transactions REST API Test Client
+# Transaction REST API
 
-A Python client to test CRUD operations (Create, Read, Update, Delete) on the SMS Transactions REST API. The client demonstrates interaction with the API endpoints using HTTP Basic Authentication and provides clear outputs for each operation.
+This project implements a REST API in *plain Python* using the built-in http.server module.  
+The API allows users to perform CRUD operations (Create, Read, Update, Delete) on transaction records.  
+It also demonstrates API security using *Basic Authentication* and compares *Linear Search vs Dictionary Lookup* for data access efficiency.
 
-Prerequisites
+## Features
+- Parse XML transaction data into JSON.
+- CRUD endpoints (GET, POST, PUT, DELETE) for managing transactions.
+- Basic Authentication (admin / alu@123).
+- Data persistence using transactions.json.
+- Efficiency comparison: Linear Search vs Dictionary Lookup.
 
-Ensure the following are installed:
+## Setup Instructions
 
-Python 3.10+
+### 1. Clone the repository
+```bash
+git clone https://github.com/your-username/Group-5-C3.git
+cd Group-5-C3
 
-requests library (pip install requests)
+2. Create and activate a virtual environment (optional but recommended)
+python -m venv venv
+# Windows
+venv\Scripts\activate
+# Linux/Mac
+source venv/bin/activate
 
-Running instance of the SMS Transactions API at http://localhost:8000
-
-Setup
-
-Clone or download this repository.
-
-Install Python dependencies:
-
-pip install requests
-
-
-Start your API server:
-
-python http_server.py
-
-
-The server will be available at http://localhost:8000.
-
-Configuration
-
-Edit the test_client.py file to set your authentication credentials:
-
-USERNAME = "frank"
-PASSWORD = "Group5@1"
-BASE_URL = "http://localhost:8000"
+3. Run the server
+python api/server.py
 
 
-Ensure these credentials match the API’s authentication.
+Server will start on:
+ http://localhost:8080
+with username: admin and password: alu@123
 
-Usage
+## Example API Usage
+1. Get all transactions
+curl -u admin:alu@123 http://localhost:8080/transactions
 
-Run the test client to perform all CRUD operations:
+2. Get transaction by ID
+curl -u admin:alu@123 http://localhost:8080/transactions/<transaction_id>
 
-python test_client.py
+3. Create a transaction
+curl -u admin:alu@123 -X POST http://localhost:8080/transactions \
+  -H "Content-Type: application/json" \
+  -d '{"transaction_id":"987654321","type":"deposit","amount":"3800","sender":"M-Money","receiver":"Jane Smith"}'
 
+4. Update a transaction
+curl -u admin:alu@123 -X PUT http://localhost:8080/transactions/987654321 \
+  -H "Content-Type: application/json" \
+  -d '{"transaction_id":"987654321","type":"withdrawal","amount":"1000","sender":"Jane Smith","receiver":"M-Money"}'
 
-The client will perform:
+5. Delete a transaction
+curl -u admin:alu@123 -X DELETE http://localhost:8080/transactions/987654321
 
-GET all transactions – retrieve all records
+## Data Structure & Algorithm (DSA) Comparison
 
-POST a new transaction – create a transaction with test data
+# The project includes a test comparing:
 
-GET the newly created transaction by ID – verify creation
+* Linear Search → checks each transaction one by one.
 
-PUT update the transaction – modify specific fields
+* Dictionary Lookup → uses a Python dictionary for O(1) access.
 
-GET the updated transaction by ID – verify update
+Results show that dictionary lookups are significantly faster for large datasets.
 
-DELETE the transaction – remove the record
+## Authentication
 
-GET the deleted transaction by ID – confirm deletion (should return 404)
+This API uses Basic Authentication:
 
-Each step prints the HTTP status code and JSON response.
+Username: admin
 
-API Endpoints Tested
-Method	Endpoint	Description
-GET	/transactions	Fetch all transactions
-POST	/transactions	Create a new transaction
-GET	/transactions/{id}	Fetch a transaction by ID
-PUT	/transactions/{id}	Update a transaction by ID
-DELETE	/transactions/{id}	Delete a transaction by ID
-Example Output
-GET /transactions
-Status Code: 200
-[]
+Password: alu@123
 
-POST /transactions
-Status Code: 201
-{'id': 10, 'transaction_id': '99999999', 'category': 'Incoming Money', ...}
+** Note **: Basic Auth is not secure for production (credentials are Base64 encoded, not encrypted).
 
-PUT /transactions/10
-Status Code: 200
-{'message': 'Transaction updated'}
+## Project Structure
+Group-5-C3/
+│── api/
+│   ├── server.py          # Main REST API server
+│   ├── dsa_test.py        # Linear vs Dictionary lookup test
+│── data/
+│   ├── transactions.json  # Sample transaction data
+│── README.md              # Setup & usage instructions
+│── report.pdf             # Detailed documentation
 
-DELETE /transactions/10
-Status Code: 200
-{'message': 'Transaction deleted'}
+## Authors 
+* Frank Musiime
+* Placide Niyonizeye
+* Olga Ikirezi
+Group_5_C3 
 
-Notes
-
-The PUT request should include all required fields according to the API schema (sms_date, sms_time, type, amount, category, etc.).
-
-A GET after DELETE returning 404 is expected.
-
-Ensure your API server uses the same authentication credentials as defined in this client.
 
