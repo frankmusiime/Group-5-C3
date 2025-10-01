@@ -1,188 +1,57 @@
-# API Documentation
-Base URL
-http://localhost:8000
+API Documentation
 
-**1. GET /transactions**
+Authentication
+All endpoints require Basic Authentication:
+- Username: admin
+- Password: alu@123
 
-Description: Retrieve all transactions.
+Endpoints
 
-**Request Example (curl):**
+1. Get All Transactions
+Endpoint & Method: GET /transactions
+Request Example:
+curl -u admin:alu@123 http://localhost:8080/transactions
+Response Example:
+[ ...JSON array of transactions... ]
+Error Codes:
+401 Unauthorized – Missing or invalid credentials
 
-curl -u frank:Group5@1 http://localhost:8000/transactions
+2. Get Transaction by ID
+Endpoint & Method: GET /transactions/{transaction_id}
+Request Example:
+curl -u admin:alu@123 http://localhost:8080/transactions/76662021700
+Response Example:
+{ ...JSON transaction object... }
+Error Codes:
+401 Unauthorized – Missing or invalid credentials
+404 Not Found – Transaction not found
 
+3. Create Transaction
+Endpoint & Method: POST /transactions
+Request Example:
+curl -u admin:alu@123 -X POST http://localhost:8080/transactions -H "Content-Type: application/json" -d '{"transaction_id": "123456789", ...}'
+Response Example:
+{ ...JSON transaction object... }
+Error Codes:
+401 Unauthorized – Missing or invalid credentials
+404 Not Found – Invalid endpoint
 
-Response Example (200 OK):
+4. Update Transaction
+Endpoint & Method: PUT /transactions/{transaction_id}
+Request Example:
+curl -u admin:alu@123 -X PUT http://localhost:8080/transactions/123456789 -H "Content-Type: application/json" -d '{"transaction_id": "123456789", ...}'
+Response Example:
+{ ...JSON transaction object... }
+Error Codes:
+401 Unauthorized – Missing or invalid credentials
+404 Not Found – Transaction not found or invalid endpoint
 
-[
-    {
-        "id": 1,
-        "transaction_id": "12345678",
-        "category": "Incoming Money",
-        "sms_body": "You received 5000 RWF from Alice",
-        "sms_date": "2025-09-27",
-        "sms_time": "14:30:00",
-        "amount": 5000.00,
-        "type": "credit",
-        "currency": "RWF",
-        "source": "SMS",
-        "created_at": "2025-09-27T14:30:05"
-    },
-    {
-        "id": 2,
-        "transaction_id": "87654321",
-        "category": "Payment",
-        "sms_body": "Payment to Bob 2000 RWF",
-        "sms_date": "2025-09-28",
-        "sms_time": "10:15:00",
-        "amount": 2000.00,
-        "type": "debit",
-        "currency": "RWF",
-        "source": "SMS",
-        "created_at": "2025-09-28T10:15:10"
-    }
-]
-
-**2. GET /transactions/{id}**
-
-Description: Retrieve a single transaction by its ID.
-
-**Request Example (curl):**
-
-curl -u frank:Group5@1 http://localhost:8000/transactions/1
-
-
-Response Example (200 OK):
-
-{
-    "id": 1,
-    "transaction_id": "12345678",
-    "category": "Incoming Money",
-    "sms_body": "You received 5000 RWF from Alice",
-    "sms_date": "2025-09-27",
-    "sms_time": "14:30:00",
-    "amount": 5000.00,
-    "type": "credit",
-    "currency": "RWF",
-    "source": "SMS",
-    "created_at": "2025-09-27T14:30:05"
-}
-
-
-Error Example (404 Not Found):
-
-{
-    "error": "Transaction not found"
-}
-
-**3. POST /transactions**
-
-Description: Create a new transaction.
-
-Request Body Example (JSON):
-
-{
-    "transaction_id": "99999999",
-    "category": "Incoming Money",
-    "sms_body": "You received 5000 RWF from Alice",
-    "sms_date": "2025-09-27",
-    "sms_time": "14:30:00",
-    "amount": 5000,
-    "type": "credit",
-    "currency": "RWF",
-    "source": "SMS"
-}
-
-
-Request Example (curl):
-
-curl -u frank:Group5@1 -X POST http://localhost:8000/transactions \
--H "Content-Type: application/json" \
--d '{"transaction_id":"99999999","category":"Incoming Money","sms_body":"You received 5000 RWF from Alice","sms_date":"2025-09-27","sms_time":"14:30:00","amount":5000,"type":"credit","currency":"RWF","source":"SMS"}'
-
-
-Response Example (201 Created):
-
-{
-    "message": "Transaction created",
-    "id": 3
-}
-
-
-Error Example (400 Bad Request):
-
-{
-    "error": "Missing required fields"
-}
-
-**4. PUT /transactions/{id}**
-
-Description: Update an existing transaction by ID. Only fields provided in JSON will be updated.
-
-Request Body Example (JSON):
-
-{
-    "category": "Payment to Code Holder",
-    "amount": 5500,
-    "sms_body": "Updated transaction SMS body"
-}
-
-
-**Request Example (curl):**
-
-curl -u frank:Group5@1 -X PUT http://localhost:8000/transactions/1 \
--H "Content-Type: application/json" \
--d '{"category":"Payment to Code Holder","amount":5500,"sms_body":"Updated transaction SMS body"}'
-
-
-Response Example (200 OK):
-
-{
-    "message": "Transaction updated"
-}
-
-
-Error Example (404 Not Found):
-
-{
-    "error": "Transaction not found"
-}
-
-
-Error Example (400 Bad Request):
-
-{
-    "error": "Invalid field data"
-}
-
-**5. DELETE /transactions/{id}**
-
-Description: Delete a transaction by ID.
-
-**Request Example (curl):**
-
-curl -u frank:Group5@1 -X DELETE http://localhost:8000/transactions/1
-
-
-Response Example (200 OK):
-
-{
-    "message": "Transaction deleted"
-}
-
-
-Error Example (404 Not Found):
-
-{
-    "error": "Transaction not found"
-}
-
-Common Error Codes
-Status Code	Description
-200	OK / Successful operation
-201	Created / Resource created
-400	Bad Request / Invalid request data
-401	Unauthorized / Invalid credentials
-404	Not Found / Resource not found
-500	Internal Server Error / Server issue
-
-This documentation covers all endpoints, request formats, response examples, and common error codes.
+5. Delete Transaction
+Endpoint & Method: DELETE /transactions/{transaction_id}
+Request Example:
+curl -u admin:alu@123 -X DELETE http://localhost:8080/transactions/123456789
+Response Example:
+Transaction deleted
+Error Codes:
+401 Unauthorized – Missing or invalid credentials
+404 Not Found – Transaction not found or invalid endpoint.
