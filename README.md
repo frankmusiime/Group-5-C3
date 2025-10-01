@@ -181,9 +181,8 @@ mysql -u root -p momo_db < database/sample_queries.sql
 ## Tool used 
 - Board Link: https://trello.com/invite/b/68c02e0265dd9c507007771b/ATTI1ea804be72db315ff8d71eff0f6c976eA1E8CB15/group-5-c3-momo-sms-dashboard-scrum-board
 
-week3
 
-# Transaction REST API
+# week3 Transaction REST API
 
 This project implements a REST API in *plain Python* using the built-in http.server module.  
 The API allows users to perform CRUD operations (Create, Read, Update, Delete) on transaction records.  
@@ -205,9 +204,9 @@ cd Group-5-C3
 
 2. Create and activate a virtual environment (optional but recommended)
 python -m venv venv
-# Windows
+ Windows
 venv\Scripts\activate
-# Linux/Mac
+ Linux/Mac
 source venv/bin/activate
 
 3. Run the server
@@ -218,7 +217,7 @@ Server will start on:
  http://localhost:8080
 with username: admin and password: alu@123
 
-## Example API Usage
+### Example API Usage
 1. Get all transactions
 curl -u admin:alu@123 http://localhost:8080/transactions
 
@@ -240,7 +239,7 @@ curl -u admin:alu@123 -X DELETE http://localhost:8080/transactions/987654321
 
 ## Data Structure & Algorithm (DSA) Comparison
 
-# The project includes a test comparing:
+### The project includes a test comparing:
 
 * Linear Search → checks each transaction one by one.
 
@@ -248,7 +247,7 @@ curl -u admin:alu@123 -X DELETE http://localhost:8080/transactions/987654321
 
 Results show that dictionary lookups are significantly faster for large datasets.
 
-## Authentication
+### Authentication
 
 This API uses Basic Authentication:
 
@@ -258,7 +257,7 @@ Password: alu@123
 
 ** Note **: Basic Auth is not secure for production (credentials are Base64 encoded, not encrypted).
 
-## Project Structure
+### Project Structure
 Group-5-C3/
 │── api/
 │   ├── server.py          # Main REST API server
@@ -268,7 +267,7 @@ Group-5-C3/
 │── README.md              # Setup & usage instructions
 │── report.pdf             # Detailed documentation
 
-## Authors 
+### Authors 
 * Frank Musiime
 * Placide Niyonizeye
 * Olga Ikirezi
