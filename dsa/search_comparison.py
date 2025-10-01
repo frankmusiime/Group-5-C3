@@ -70,3 +70,21 @@ print(f"Dictionary Lookup Time: {dict_time:.6f} milliseconds")
 # Compare Efficiency
 print(f"\nComparison:")
 print(f"Dictionary Lookup is {linear_time / dict_time:.2f} times faster than Linear Search for this test.")
+def reflection():
+    """Explain why dictionary lookup is faster and suggest alternatives."""
+    print(f"{MAGENTA}{BRIGHT}\nReflection\n{RESET}")
+    print(f"{WHITE}Linear search goes through each record stepby step.{RESET}")
+    print(
+        f"{WHITE}Dictionary lookup is faster because it uses a hash function "
+        f"to jump directly to the record without scanning all items.{RESET}"
+    )
+    print(
+        f"{CYAN}This makes it much more efficient,"
+        "especially for large datasets.{RESET}"
+    )
+    print(
+        f"{YELLOW}Another option: Binary Search Tree (BST)."
+        f"If balanced, it can find items in O(log n) time,"
+        "also faster than linear search.{RESET}")
+
+ reflection()
